@@ -1,0 +1,10 @@
+{
+  "name": "Landing Page",
+  "short_name": "landing page",
+  "icons": [],
+  "background_color": "#FFFFFF",
+  "description": "This is a sample landing page",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#000"
+}
