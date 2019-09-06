@@ -1,10 +1,19 @@
 {
   "version": 2,
-  "routes": [],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.go"
+    }
+  ],
   "builds": [
     {
       "src": "next.config.js",
       "use": "@now/next"
+    },
+    {
+      "src": "/api/index.go",
+      "use": "@now/go"
     }
   ]
 }
