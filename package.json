@@ -4,10 +4,17 @@
   "description": "Template website",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm test",
+    "test": "jest && npm run lint",
+    "coverage": "jest --coverage --coverageReporters=html",
+    "send-coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "npm run prettier-check",
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "now"
+    "prettier-check": "prettier --check \"./**/*.{ts,tsx}\"",
+    "fix": "npm run prettier",
+    "prettier": "prettier --write \"./**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -24,9 +31,46 @@
     "@zeit/next-sass": "^1.0.1",
     "next": "^9.0.5",
     "next-routes": "^1.4.2",
-    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-ga": "^2.6.0"
+    "react-ga": "^2.6.0",
+    "react-test-renderer": "^16.10.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.11",
+    "@types/react": "^16.9.4",
+    "@types/react-test-renderer": "^16.9.0",
+    "jest": "^24.9.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid",
+    "singleQuote": true
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/tests"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    }
   }
 }

@@ -1,6 +1,7 @@
-// next.config.js
 const withSass = require('@zeit/next-sass');
 
-const config = {};
+const config = {
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+};
 
 module.exports = withSass(config);
