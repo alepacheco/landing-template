@@ -48,7 +48,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "jest": "^24.9.0",
     "next": "^9.1.5",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
